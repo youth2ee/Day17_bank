@@ -16,7 +16,7 @@ public class AccountInfoDAO {
 		int result = 0;
 		
 		con = DBConnector.getConnect();
-		String sql = "insert into accountinfo values (trade_seq.nextval,?,?,?,?,sysdate)";
+		String sql = "insert into accountinfo values (trade_seq.nextval,?,?,?,?,sysdate) order by tradenumber desc";
 		st = con.prepareStatement(sql);
 		st.setString(1, accountInfoDTO.getAccountNumber()); //계좌번호
 		st.setLong(2, accountInfoDTO.getIncome()); //넣을 금액 
@@ -66,12 +66,11 @@ public class AccountInfoDAO {
 		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		AccountInfoDTO accountInfoDTO=null;
+		AccountInfoDTO accountInfoDTO;
 		ArrayList<AccountInfoDTO> ar = new ArrayList<AccountInfoDTO>();
 		
 		con = DBConnector.getConnect();
-		String sql = "select * from accountinfo where accountnumber=? "
-				+ "order by tradenumber desc";
+		String sql = "select * from accountinfo where accountnumber=?";
 		st = con.prepareStatement(sql);
 		
 		st.setString(1, ac);
@@ -122,6 +121,7 @@ public class AccountInfoDAO {
 		return accountBalance;
 	}
 	
+
 	
 
 }

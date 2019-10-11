@@ -2,8 +2,6 @@ package com.naver.accountInfo;
 
 import java.util.List;
 import java.util.Scanner;
-
-import com.naver.bankInput.AccountInfoInput;
 import com.naver.bankInput.AccountInput;
 import com.naver.bankView.AccountInfoView;
 
@@ -12,14 +10,12 @@ public class AccountInfoController {
 	private AccountInfoDAO accountInfoDAO;
 	private AccountInput accountInput;
 	private AccountInfoView accountInfoView;
-	private AccountInfoInput accountInfoInput;
 
 	public AccountInfoController() {
 		sc = new Scanner(System.in);
 		accountInfoDAO = new AccountInfoDAO();
 		accountInput = new AccountInput();
 		accountInfoView = new AccountInfoView();
-		accountInfoInput = new AccountInfoInput();
 	}
 
 	public void start(String accountNumber) throws Exception {
@@ -44,12 +40,10 @@ public class AccountInfoController {
 						accountInfoView.view(ar);						
 					} else {
 						System.out.println("계좌정보 없습니다.");
-						check=!check;
 					}
 				} catch (Exception e) {
 					System.out.println("계좌정보 없습니다.");
 					e.printStackTrace();
-					check=!check;
 				}
 				break;
 
