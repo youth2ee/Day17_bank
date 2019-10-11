@@ -6,8 +6,8 @@ public class AccountInfoDTO {
 	
 	private String tradeNumber;
 	private String accountNumber;
-	private int income;
-	private int accountBalance;
+	private long income;
+	private long accountBalance;
 	private int incomeKind;
 	private Date tradeDate;
 	
@@ -23,16 +23,16 @@ public class AccountInfoDTO {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	public int getIncome() {
+	public long getIncome() {
 		return income;
 	}
-	public void setIncome(int income) {
+	public void setIncome(long income) {
 		this.income = income;
 	}
-	public int getAccountBalance() {
+	public long getAccountBalance() {
 		return accountBalance;
 	}
-	public void setAccountBalance(int accountBalance) {
+	public void setAccountBalance(long accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 	public int getIncomeKind() {

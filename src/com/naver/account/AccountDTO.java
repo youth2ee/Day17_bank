@@ -4,7 +4,7 @@ public class AccountDTO {
 	
 	private String accountNumber;
 	private String accountName;
-	private int accountBalance;
+	private long accountBalance;
 	private String id;
 	
 	public String getAccountNumber() {
@@ -19,10 +19,10 @@ public class AccountDTO {
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
 	}
-	public int getAccountBalance() {
+	public long getAccountBalance() {
 		return accountBalance;
 	}
-	public void setAccountBalance(int accountBalance) {
+	public void setAccountBalance(long accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 	public String getId() {

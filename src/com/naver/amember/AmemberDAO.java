@@ -8,45 +8,45 @@ import java.sql.SQLException;
 import com.naver.util.DBConnector;
 
 public class AmemberDAO {
-	
+
 	public int memberJoin(AmemberDTO amemberDTO) throws Exception {
 		Connection con =null;
 		PreparedStatement st =null;
 		int result = 0;
-		
-			con = DBConnector.getConnect();
-			String sql = "insert into amember values (?,?,?,?,?)";
-			st = con.prepareStatement(sql);
-			st.setString(1, amemberDTO.getId());
-			st.setString(2, amemberDTO.getPw());
-			st.setString(3, amemberDTO.getName());
-			st.setString(4, amemberDTO.getPhone());
-			st.setString(5, amemberDTO.getEmail());
 
-			result = st.executeUpdate();
-		
-			
+		con = DBConnector.getConnect();
+		String sql = "insert into amember values (?,?,?,?,?)";
+		st = con.prepareStatement(sql);
+		st.setString(1, amemberDTO.getId());
+		st.setString(2, amemberDTO.getPw());
+		st.setString(3, amemberDTO.getName());
+		st.setString(4, amemberDTO.getPhone());
+		st.setString(5, amemberDTO.getEmail());
 
-				st.close();
-				con.close();
+		result = st.executeUpdate();
 
-		
+
+
+		st.close();
+		con.close();
+
+
 		return result;
 	}//memberJoin
-	
+
 	public AmemberDTO memberLogin(AmemberDTO amemberDTO) {
 		Connection con =null;
 		PreparedStatement st =null;
 		ResultSet rs =null;
 		//AmemberDTO amemberDTO = null;
-		
+
 		try {
 			con = DBConnector.getConnect();
 			String sql = "select * from amember where id=? and pw=?";
 			st = con.prepareStatement(sql);
 			st.setString(1, amemberDTO.getId());
 			st.setString(2, amemberDTO.getPw());
-			
+
 			rs = st.executeQuery();
 			if(rs.next()) {
 				//amemberDTO = new AmemberDTO();
@@ -58,7 +58,7 @@ public class AmemberDAO {
 			} else {
 				amemberDTO = null;
 			}
-			
+
 			/*
 			if(rs.next()) {
 				새로 객체생성안하고 amemberDTO에 아이디랑 비번받아서 위에서 썼다면
@@ -70,9 +70,9 @@ public class AmemberDAO {
 				여기서 amemberDTO = null;로 만들어서 리턴해주면
 				로그인판별할 수 있다.
 			}
-			*/
-			
-			
+			 */
+
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,8 +86,8 @@ public class AmemberDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return amemberDTO;
 	}//memberLogin
-	
+
 }

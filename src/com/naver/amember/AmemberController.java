@@ -41,9 +41,10 @@ public class AmemberController {
 				AmemberDTO amemberDTO2 = amemberDAO.memberLogin(amemberDTO);
 				if(amemberDTO2!=null) {
 					System.out.println("로그인 성공");
-					accountController.start(amemberDTO2.getId());
-	
-				//	check=!check;
+					//accountController.start(amemberDTO2.getId());
+					accountController.start(amemberDTO2);
+					
+					//	check=!check;
 				} else {
 					System.out.println("로그인 실패");					
 				}
@@ -54,7 +55,7 @@ public class AmemberController {
 				AmemberDTO amemberDTO3 = amemberInput.memberjoin(sc);
 				try {
 					result = amemberDAO.memberJoin(amemberDTO3);
-					
+
 					msg ="회원가입 실패";
 					if(result>0) {
 						msg="회원가입 성공";

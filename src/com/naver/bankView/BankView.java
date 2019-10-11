@@ -6,4 +6,5 @@ public class BankView {
 		System.out.println(str);
 	} //view (string) 
 
+
 }
