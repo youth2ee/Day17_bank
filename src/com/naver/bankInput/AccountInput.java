@@ -50,9 +50,6 @@ public class AccountInput {
 		AccountInfoDAO accountInfoDAO = new AccountInfoDAO();
 		String account = null;
 		
-		//System.out.println("계좌번호를 입력하세요");
-		//accountInfoDTO.setAccountNumber(sc.next());
-		
 		accountInfoDTO.setAccountNumber(accountNumber);
 		
 		if(a==1) {
